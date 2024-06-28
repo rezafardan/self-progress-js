@@ -102,5 +102,3 @@ for (let i = 1; i <= 4; i++) {
 // variabel i adalah :  3  variabel j adalah :  2
 // variabel i adalah :  4  variabel j adalah :  1
 // variabel i adalah :  4  variabel j adalah :  2
-
-// contoh perubahan feature tes
