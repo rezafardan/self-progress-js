@@ -161,16 +161,45 @@ console.log(cobaRata2(2, 2, 5));
 let foo = "Belajar";
 
 function a() {
-  console.log(foo);
+  return console.log(foo);
 }
 
 a();
 //3
-Belajar;
 
 function b() {
   let bar = "Tes Belajar"; // local variabel
 }
 
-console.log(bar);
-// Uncaught ReferenceError: a is not defined
+// // console.log(bar);
+// // Uncaught ReferenceError: a is not defined
+
+let x = 5;
+let y = 10;
+
+function tes(x, y) {
+  x = 1;
+  y = 2;
+  console.log(x, y);
+}
+
+console.log(tes());
+
+// Source WPU
+
+// global scope / window scope
+// parameter akan selalu menjadi local scope
+
+const z = 1;
+
+function qq(z) {
+  console.log(z);
+  return;
+}
+
+console.log(qq(2)); // undefined
+
+// Hoisting
+/*
+Hoisting merupakan hal yang unik dari JavaScript, yang jika tidak diketahui bisa menjadi bug atau mendatangkan error. JavaScript hoisting berkaitan dengan cara JavaScript mengeksekusi kode program, yang bisa "mengangkat" pendefinisian variabel dan function ke baris paling atas.
+*/
