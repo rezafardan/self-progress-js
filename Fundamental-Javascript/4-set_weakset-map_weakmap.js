@@ -78,7 +78,6 @@ a.set("huruf", ["a", "b", "c"]);
 console.log(a); // Map(3) { 10 => 20, 'nama' => 'Reza', 'huruf' => [ 'a', 'b', 'c' ] }
 
 // Mengakses element dengan method get
-
 console.log(a.get(10)); // 20
 console.log(a.get("nama")); // Reza
 console.log(a.get("huruf")); // [ 'a', 'b', 'c' ]
@@ -117,7 +116,6 @@ console.log(b.get(o1)); // Halo
 console.log(b.get(o2)); // Anyeong
 
 // Menghapus element dengan method delete()
-
 b.delete(o1);
 console.log(b.get(o1)); // undefined
 console.log(b.get(o2)); // Anyeong

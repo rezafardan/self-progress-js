@@ -1,3 +1,4 @@
+// While
 /*
 Perulangan kedua yang akan kita bahas adalah while. Perulangan ini mirip seperti for, tapi dengan memisahkan bagian start, condition, dan increment.
 */
@@ -18,22 +19,8 @@ while (i > 0) {
 // hasil
 // 100 * 5 = 500
 // 95 * 5 = 475
-// 90 * 5 = 450
-// 85 * 5 = 425
-// 80 * 5 = 400
-// 75 * 5 = 375
-// 70 * 5 = 350
-// 65 * 5 = 325
-// 60 * 5 = 300
-// 55 * 5 = 275
-// 50 * 5 = 250
-// 45 * 5 = 225
-// 40 * 5 = 200
-// 35 * 5 = 175
-// 30 * 5 = 150
-// 25 * 5 = 125
-// 20 * 5 = 100
-// 15 * 5 = 75
+// ..
+// ..
 // 10 * 5 = 50
 // 5 * 5 = 25
 
@@ -49,3 +36,33 @@ while (y <= 10) {
 // Cek perulangan while break ke-2
 // Cek perulangan while break ke-3
 // Cek perulangan while break ke-4
+
+// Do While
+/*
+Perulangan do while sangat mirip seperti perulangan while. Bedanya, dalam perulangan do while kondisi di cek di akhir blok kode program
+*/
+
+/*
+start;
+
+do {
+statement;
+increment;
+} while (condition)
+*/
+
+/*
+Konsekuensi dari pemeriksaan yang dilakukan di akhir adalah, blok perulangan setidaknya akan diproses 1 kali, meskipun kondisi tersebut sudah tidak dipenuhi sejak awal. 
+*/
+let x = 1;
+
+do {
+  console.log(x + " kuadrat = " + x * x);
+  x = x + 1;
+} while (x <= 10);
+// 1 kuadrat = 1
+// 2 kuadrat = 4
+// ..
+// ..
+// 9 kuadrat = 81
+// 10 kuadrat = 100
