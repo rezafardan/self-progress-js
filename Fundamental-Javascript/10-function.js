@@ -203,3 +203,39 @@ console.log(qq(2)); // undefined
 /*
 Hoisting merupakan hal yang unik dari JavaScript, yang jika tidak diketahui bisa menjadi bug atau mendatangkan error. JavaScript hoisting berkaitan dengan cara JavaScript mengeksekusi kode program, yang bisa "mengangkat" pendefinisian variabel dan function ke baris paling atas.
 */
+
+// console.log(k); // undefined
+
+// karena hoisting javascript akan mencari variabel a dulu, maka akan tampil undefined karena tidak ada inisialisasi variabel a pada scope globals
+
+let k = "Belajar JS";
+
+function abc() {
+  console.log("Didalam function terdapat variabel", k);
+}
+
+abc(); // Didalam function terdapat variabel Belajar JS
+
+// Function expression dan Function declaration
+
+// Declaration
+function lalala() {
+  console.log("Ini adalah function Declaration");
+}
+
+let lilili = function uhuy() {
+  // nama function uhuy adalah optional karena meskipun sudah di tulis dia tidak akan bisa dipanggil
+  console.log("Ini adalah function Expression"); // Function ini akan sering digunakan untuk membuat object
+};
+
+function nana(apa) {
+  console.log(apa);
+}
+
+nana("Haloo");
+
+function nini(kotak) {
+  kotak("Haloo ini Kotak");
+}
+
+nini(nana);
