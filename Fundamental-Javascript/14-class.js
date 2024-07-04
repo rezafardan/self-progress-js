@@ -129,3 +129,19 @@ let busReza = new Bus("Scania K360");
 
 console.log(busReza.infoBus());
 console.log(busReza.infoMobil());
+
+// Static property dan Static method
+
+class Mobil {
+  static warna = "biru";
+  static infoMobil() {
+    return "ini dari class mobil";
+  }
+}
+
+console.log(Mobil.warna); // biru
+console.log(Mobil.infoMobil()); // ini dari class mobil
+
+let mobilReza = new Mobil();
+console.log(mobilReza.warna); // undefined
+console.log(mobilReza.infoMobil()); // TypeError: mobilReza.infoMobil is not a function
