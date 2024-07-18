@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise Method</title>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>Id :</td>
+          <td id="id"></td>
+        </tr>
+        <tr>
+          <td>Name :</td>
+          <td id="name"></td>
+        </tr>
+        <tr>
+          <td>Price :</td>
+          <td id="price"></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      // promise dibuat dengan fungsi new Promise yang menerima dua parameter yaitu fungsi resolve dan reject yang berfungsi untuk menangani event load dan error dari ajax yang berjalan dalam promise
+      function getProduct() {
+        return new Promise((resolve, reject) => {
+          const ajax = new XMLHttpRequest();
+          ajax.open("GET", "product.json");
+          ajax.onload = function () {
+            // kalau lupa memanggil resolve dan reject maka nilai promise akan selalu pending
+            if (ajax.status === 200) {
+              // dengan resolve ajax.responseText berfungsi untuk menangani event load dari ajax
+              resolve(ajax.responseText);
+            } else {
+              // dengan reject ajax.statusText berfungsi untuk menangani event error dari ajax
+              reject(ajax.statusText);
+            }
+          };
+          ajax.send();
+        });
+      }
+
+      getProduct()
+        .then(function (response) {
+          return JSON.parse(response);
+        })
+        .then(function (json) {
+          document.getElementById("id").textContent = json.id;
+          document.getElementById("name").textContent = json.name;
+          document.getElementById("price").textContent = json.price;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>

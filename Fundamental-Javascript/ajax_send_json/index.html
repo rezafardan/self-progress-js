@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax Send JSON</title>
+  </head>
+  <body>
+    <form>
+      <label for="username"
+        >Username:
+        <input type="text" id="username" name="username" />
+      </label>
+      <br />
+      <label for="password"
+        >Password: <input type="password" id="password"
+      /></label>
+      <input type="button" id="login" value="Login" />
+    </form>
+    <h1 id="response"></h1>
+    <script>
+      // fungsi doLogin adalah fungsi yang dijalankan ketika tombol login ditekan
+      function doLogin() {
+        // membuat variabel ajax yang berfungsi sebagai objek XMLHttpRequest
+        const ajax = new XMLHttpRequest();
+        // ajax.open adalah membuka koneksi
+        ajax.open("POST", "https://eo1xusplr6vb9ul.m.pipedream.net");
+        // ajax.onload berfungsi untuk menangani event load
+        ajax.onload = function () {
+          const response = document.getElementById("response");
+          response.innerText = ajax.responseText;
+        };
+
+        // ajax.setRequestHeader berfungsi untuk menetapkan header yang akan dikirimkan ke server dengan parameter Content-Type dengan value application/json
+        ajax.setRequestHeader("Content-Type", "application/json");
+        // ajax.send berfungsi untuk mengirim request ke server dengan parameter JSON yang berisi username dan password yang dikirimkan oleh user ke server
+        ajax.send(
+          JSON.stringify({
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value,
+          })
+        );
+      }
+
+      // fungsi doLogin dijalankan ketika tombol login ditekan
+      document.getElementById("login").onclick = doLogin;
+    </script>
+  </body>
+</html>

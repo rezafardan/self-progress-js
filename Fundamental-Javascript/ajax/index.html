@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX</title>
+  </head>
+  <body>
+    <h1 id="header"></h1>
+    <script>
+      // fungsi display response dengan parameter json berfungsi untuk menampilkan data json yang dikembalikan oleh ajax
+      const displayResponse = (json) => {
+        const header = document.getElementById("header");
+        header.textContent = json.map((data) => data.username).join(", ");
+      };
+
+      // variabel ajax adalah objek XMLHttpRequest
+      const ajax = new XMLHttpRequest();
+      // fungsi ajax.open adalah membuka koneksi
+      ajax.open("GET", "https://jsonplaceholder.typicode.com/users");
+
+      // fungsi ajax.addEventListener adalah menangani event load
+      ajax.addEventListener("load", function () {
+        if (ajax.status === 200) {
+          const json = JSON.parse(ajax.responseText);
+          displayResponse(json);
+        } else {
+          displayResponse({
+            response: `Terjadi kesalahan dengan status ${ajax.status} ${ajax.statusText}`,
+          });
+        }
+      });
+      // fungsi ajax.send adalah mengirim request
+      ajax.send();
+
+      // fungsi display response dengan parameter json berfungsi untuk menampilkan data json yang dikembalikan oleh ajax
+
+      // daftar state ajax
+      // 0: request not initialized
+      // 1: server connection established
+      // 2: request received
+      // 3: processing request
+      // 4: request finished and response is ready
+
+      // dengan readyState 4, request finished and response is ready
+      // jika ingin mendengarkan perubahan yang terjadi pada state, gunakan event listener readystatechange
+
+      ajax.onreadystatechange = function () {
+        console.log(ajax.readyState);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <script>
+      // promise dibuat dengan fungsi new Promise yang menerima dua parameter yaitu fungsi resolve dan reject yang berfungsi untuk menangani event load dan error dari ajax yang berjalan dalam promise
+      const promise = new Promise((resolve, reject) => {
+        const ajax = new XMLHttpRequest();
+        ajax.open("GET", "product.json");
+        ajax.onload = function () {
+          // kalau lupa memanggil resolve dan reject maka nilai promise akan selalu pending
+          if (ajax.status === 200) {
+            // dengan resolve ajax.responseText berfungsi untuk menangani event load dari ajax
+            resolve(ajax.responseText);
+          } else {
+            // dengan reject ajax.statusText berfungsi untuk menangani event error dari ajax
+            reject(ajax.statusText);
+          }
+        };
+        ajax.send();
+      });
+
+      console.info(promise);
+    </script>
+  </body>
+</html>
