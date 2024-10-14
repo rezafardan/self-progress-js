@@ -141,6 +141,10 @@ console.log(books.judul);
 // Latihan 1: setTimeout
 // Buat program yang mencetak "Hello" setelah 2 detik dan "World" setelah 4 detik.
 
+function hello() {
+  setTimeout(console.log(Hello), 3000);
+}
+
 // Latihan 2: Promises
 // Buat promise yang mensimulasikan pengambilan data. Resolve jika berhasil, reject jika gagal.
 
